@@ -7,21 +7,24 @@ using System.Web.Http;
 
 using BO;
 using BL;
+using System.Threading.Tasks;
 
 namespace SampleBackendAPI.Controllers
 {
     public class KategoriController : ApiController
     {
         // GET: api/Kategori
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<Kategori>> Get()
         {
-            return new string[] { "value1", "value2" };
+            KategoriBL kategoriBL = new KategoriBL();
+            return await kategoriBL.GetAllKategori();
         }
 
         // GET: api/Kategori/5
-        public string Get(int id)
+        public async Task<Kategori> Get(int id)
         {
-            return "value";
+            KategoriBL kategoriBL = new KategoriBL();
+            return await kategoriBL.GetKategoriByID(id);
         }
 
         // POST: api/Kategori
