@@ -84,6 +84,23 @@ namespace DAL
             }
         }
 
+        public async Task UpdateKategori(Kategori kategori)
+        {
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"update Kategori set NamaKategori=@NamaKategori where KategoriID=@KategoriID";
+                var param = new { NamaKategori = kategori.NamaKategori, KategoriID=kategori.KategoriID };
+                try
+                {
+                    await conn.ExecuteAsync(strSql, param);
+                }
+                catch (SqlException sqlEx)
+                {
+                    throw new Exception("Error " + sqlEx.Message);
+                }
+            }
+        }
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);
