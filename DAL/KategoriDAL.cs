@@ -101,6 +101,23 @@ namespace DAL
             }
         }
 
+        public async Task DeleteKategori(int kategoriID)
+        {
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"delete from Kategori where KategoriID=@KategoriID";
+                var param = new { KategoriID = kategoriID };
+                try
+                {
+                    await conn.ExecuteAsync(strSql, param);
+                }
+                catch (SqlException sqlEx)
+                {
+                    throw new Exception("Error " + sqlEx.Message);
+                }
+            }
+        }
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);
