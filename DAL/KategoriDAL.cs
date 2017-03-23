@@ -48,12 +48,12 @@ namespace DAL
         //    }
         //}
 
-        public IEnumerable<Kategori> GetAllKategori()
+        public async Task<IEnumerable<Kategori>> GetAllKategori()
         {
             using (SqlConnection conn = new SqlConnection(GetConnStr()))
             {
                 string strSql = @"select * from Kategori order by NamaKategori asc";
-                return conn.Query<Kategori>(strSql);
+                return await conn.QueryAsync<Kategori>(strSql);
             }
         }
 
@@ -64,6 +64,24 @@ namespace DAL
                 string strSql = @"select * from Kategori where KategoriID=@KategoriID";
                 var param = new { KategoriID = kategoriID };
                 return conn.QuerySingle<Kategori>(strSql, param);
+            }
+        }
+
+        public void InsertKategori(Kategori kategori)
+        {
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"insert into Kategori(NamaKategori) values(@NamaKategori)";
+                var param = new { NamaKategori = kategori.NamaKategori };
+                try
+                {
+                    conn.execute
+                }
+                catch (SqlException sqlEx)
+                {
+
+                    throw;
+                }
             }
         }
 
