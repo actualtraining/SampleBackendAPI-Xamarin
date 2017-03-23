@@ -57,17 +57,17 @@ namespace DAL
             }
         }
 
-        public Kategori GetKategoriByID(int kategoriID)
+        public async Task<Kategori> GetKategoriByID(int kategoriID)
         {
             using (SqlConnection conn = new SqlConnection(GetConnStr()))
             {
                 string strSql = @"select * from Kategori where KategoriID=@KategoriID";
                 var param = new { KategoriID = kategoriID };
-                return conn.QuerySingle<Kategori>(strSql, param);
+                return await conn.QuerySingleAsync<Kategori>(strSql, param);
             }
         }
 
-        public void InsertKategori(Kategori kategori)
+        public async Task InsertKategori(Kategori kategori)
         {
             using (SqlConnection conn = new SqlConnection(GetConnStr()))
             {
@@ -75,12 +75,11 @@ namespace DAL
                 var param = new { NamaKategori = kategori.NamaKategori };
                 try
                 {
-                    conn.execute
+                    await conn.ExecuteAsync(strSql, param);
                 }
                 catch (SqlException sqlEx)
                 {
-
-                    throw;
+                    throw new Exception("Error " + sqlEx.Message);
                 }
             }
         }
