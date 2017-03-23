@@ -42,6 +42,8 @@ namespace DAL
                 dr.Close();
                 cmd.Dispose();
                 conn.Close();
+
+                return listKategori;
             }
         }
 
