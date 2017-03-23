@@ -25,6 +25,9 @@ namespace SampleBackendAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //agar result berupa json di semua browser
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
     }
 }
