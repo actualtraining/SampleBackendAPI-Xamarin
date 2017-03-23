@@ -20,6 +20,14 @@ namespace SampleBackendAPI.Controllers
             return await kategoriBL.GetAllKategori();
         }
 
+        /*[Route("api/Kategori/GetAllKategori")]
+        [HttpGet]
+        public async Task<IEnumerable<Kategori>> GetAllKategori()
+        {
+            KategoriBL kategoriBL = new KategoriBL();
+            return await kategoriBL.GetAllKategori();
+        }*/
+
         // GET: api/Kategori/5
         public async Task<Kategori> Get(int id)
         {
@@ -28,18 +36,48 @@ namespace SampleBackendAPI.Controllers
         }
 
         // POST: api/Kategori
-        public void Post([FromBody]string value)
+        public async Task<IHttpActionResult> Post(Kategori kategori)
         {
+            KategoriBL kategoriBL = new KategoriBL();
+            try
+            {
+                await kategoriBL.InsertKategori(kategori);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT: api/Kategori/5
-        public void Put(int id, [FromBody]string value)
+        public async Task<IHttpActionResult> Put(Kategori kategori)
         {
+            KategoriBL kategoriBL = new KategoriBL();
+            try
+            {
+                await kategoriBL.UpdateKategori(kategori);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE: api/Kategori/5
-        public void Delete(int id)
+        public async Task<IHttpActionResult> Delete(int id)
         {
+            KategoriBL kategoriBL = new KategoriBL();
+            try
+            {
+                await kategoriBL.DeleteKategori(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
