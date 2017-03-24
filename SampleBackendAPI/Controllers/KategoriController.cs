@@ -29,6 +29,7 @@ namespace SampleBackendAPI.Controllers
         }*/
 
         // GET: api/Kategori/5
+        [Authorize]
         public async Task<Kategori> Get(int id)
         {
             KategoriBL kategoriBL = new KategoriBL();
