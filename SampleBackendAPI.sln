@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{C5740E24-3421-467D-900F-7992D44C46B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{C1A51FAD-F025-4601-8F0A-A6DA853DEF4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C5740E24-3421-467D-900F-7992D44C46B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5740E24-3421-467D-900F-7992D44C46B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5740E24-3421-467D-900F-7992D44C46B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1A51FAD-F025-4601-8F0A-A6DA853DEF4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1A51FAD-F025-4601-8F0A-A6DA853DEF4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1A51FAD-F025-4601-8F0A-A6DA853DEF4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1A51FAD-F025-4601-8F0A-A6DA853DEF4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
